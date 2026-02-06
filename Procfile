@@ -1,1 +1,2 @@
-worker: python read_bot.py
+worker: python main.py
+
