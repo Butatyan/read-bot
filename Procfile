@@ -1,1 +1,1 @@
-worker: python bot aaa
+worker: python read_bot.py
