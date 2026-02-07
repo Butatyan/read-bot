@@ -1,1 +1,1 @@
-worker: python read_bot.py
+worker: python src/read_bot.py
