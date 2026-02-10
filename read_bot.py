@@ -3,7 +3,7 @@ from gtts import gTTS
 import asyncio
 import os
 
-TOKEN = []
+TOKEN = os.environ["TOKEN"]
 
 # 読み上げたいテキストチャンネルID（複数OK）
 TARGET_CHANNEL_IDS = [
