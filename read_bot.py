@@ -90,5 +90,23 @@ async def on_message(message):
 async def on_ready():
     print(f"Bot起動完了: {client.user}")
 
+@client.event
+async def on_voice_state_update(member, before, after):
+    # BOT自身の移動は無視
+    if member.bot:
+        return
+
+    # BOTがどこかのVCにいるか
+    for vc in client.voice_clients:
+        channel = vc.channel
+
+        # そのVCに人がいなくなったかチェック（BOT以外）
+        humans = [m for m in channel.members if not m.bot]
+
+        if len(humans) == 0:
+            await vc.disconnect()
+            print("誰もいなくなったのでVCから退出しました")
+
+
 
 client.run(TOKEN)
