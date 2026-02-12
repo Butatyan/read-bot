@@ -26,7 +26,8 @@ async def play_tts(vc, text):
     if vc.is_playing():
         vc.stop()
 
-    source = discord.FFmpegPCMAudio("tts.mp3")
+    source = discord.FFmpegPCMAudio("tts.mp3", executable="ffmpeg")
+
     vc.play(source)
 
     while vc.is_playing():
